@@ -1,0 +1,33 @@
+GET http://localhost:5000/inquilinos
+
+###
+GET http://localhost:5000/inquilinos/1
+
+###
+POST http://localhost:5000/inquilinos
+Content-Type: application/json
+
+{
+    "name":"jheyson 3",
+    "lastName":"quiroz",
+    "sindicato":"snata rosa",
+    "phone":72779572,
+    "tutor":"carlos",
+    "university":"Simon I. Patiño"
+}
+
+###
+PATCH  http://localhost:5000/inquilinos/1
+Content-Type: application/json
+
+{
+    "name":"Elvis 3 update",
+    "lastName":"quiroz",
+    "sindicato":"santa rosa",
+    "phone":72779572,
+    "tutor":"carlos",
+    "university":"Simon I. Patiño"
+}
+
+###
+DELETE   http://localhost:5000/inquilinos/1
