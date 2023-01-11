@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
+
 export const getInquilinos = async (req, res) => {
   try {
     const response = await prisma.inquilino.findMany();
@@ -63,7 +64,6 @@ export const updateInquilinos = async (req, res) => {
   }
 };
 export const deleteInquilinos = async(req, res) => {
-
   try {
     const inquilinos = await prisma.inquilino.delete({
       where:{
@@ -75,3 +75,4 @@ export const deleteInquilinos = async(req, res) => {
     res.status(400).json({msg:error.message});
   }
 };
+

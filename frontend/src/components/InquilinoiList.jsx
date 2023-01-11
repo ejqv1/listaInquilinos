@@ -40,7 +40,7 @@ const InquilinoiList = () => {
                 <th className="py-3 px-6">Celular</th>
                 <th className="py-3 px-6">Tutor</th>
                 <th className="py-3 px-6">Universidad</th>
-                <th className="py-3 px-1 text-center">Propiedades</th>
+                <th className="py-3 px-1 text-center">MAs</th>
               </tr>
             </thead>
             <tbody>
