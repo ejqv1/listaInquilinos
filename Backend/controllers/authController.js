@@ -6,8 +6,8 @@ const prisma = new PrismaClient();
 export const login = async (req, res) => {
     console.log(req.body);
   try {
-    const {user,password}=req.body;
-    const userNow = await prisma.user.findUnique({where:{email:user}});
+    const {email,password}=req.body;
+    const userNow = await prisma.user.findUnique({where:{email:email}});
     if(userNow){
       console.log(userNow);
       const validate = userNow.password===password?true:false

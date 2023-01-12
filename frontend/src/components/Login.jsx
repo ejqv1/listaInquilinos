@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react'
+import { useState } from 'react';
 import { Link } from "react-router-dom";
 
 
@@ -7,10 +8,16 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
 
-  const login = (event)=>{
+  const [user,setUserName]=useState('');
+  const [password,setPassword]=useState('');
+
+  const login = async (event)=>{
     event.preventDefault();
     console.log("enviando al servidor Login");
-    axios.post("http://localhost:5000/login",{user:"elvis@gmail.com",password:"1234565"}).then((response)=>{
+    await axios.post("http://localhost:5000/login",{
+      email:user,
+      password:password
+    }).then((response)=>{
       console.log(response.data);
 
     }).catch((err)=>console.log("error =>",err.response.data.msg))
@@ -28,6 +35,7 @@ const Login = () => {
               type="text"
               className="w-full py-3 mt-1 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow"
               placeholder="Nombre" 
+              value={user} onChange={(event)=>setUserName(event.target.value)}
             />
           </div>
           <div className="mb-5">
@@ -35,7 +43,8 @@ const Login = () => {
             <input
               type="text"
               className="w-full py-3 mt-1 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow"
-              placeholder="Apellido"
+              placeholder="Contraseña"
+              value={password} onChange={(event)=>setPassword(event.target.value)}
             />
           </div>
           <div className='mb-5'>
