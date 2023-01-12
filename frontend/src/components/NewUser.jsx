@@ -10,11 +10,11 @@ const NewUser = () => {
 
   const createUser = async(event)=>{
     event.preventDefault();
-    await axios.post("http://localhost:5000/crearUsuario",{
+    await axios.post("http://localhost:5000/createUser",{
       email:email,
       password:password
     });
-    navigate("/");
+    navigate("/login");
   }
 
   return (

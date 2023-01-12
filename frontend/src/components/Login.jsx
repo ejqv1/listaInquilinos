@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react'
 import { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
@@ -10,6 +10,7 @@ const Login = () => {
 
   const [user,setUserName]=useState('');
   const [password,setPassword]=useState('');
+  const navigate = useNavigate();
 
   const login = async (event)=>{
     event.preventDefault();
@@ -21,6 +22,7 @@ const Login = () => {
       console.log(response.data);
 
     }).catch((err)=>console.log("error =>",err.response.data.msg))
+    navigate("/");
   }
 
 
